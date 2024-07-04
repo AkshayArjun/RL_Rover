@@ -1,0 +1,4 @@
+source;share/RL_Rover/local_setup.bash
+source;share/RL_Rover/local_setup.dsv
+source;share/RL_Rover/local_setup.sh
+source;share/RL_Rover/local_setup.zsh
