@@ -51,6 +51,107 @@
             <origin xyz = "0 0 0" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
+
+    <joint name = "chassis_motor_fl" type = "fixed">
+        <parent link = "chassis"/>
+        <child link = "motor_fl"/>
+        <origin xyz = "0.16 0.21 -0.020" rpy="0 0 0"/>
+    </joint>
+
+    <link name = "motor_fl">
+        <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry> 
+                <box size="0.025 0.025 0.020"/>
+            </geometry>
+            <material name = "silver"/>
+        </visual>
+        <collision>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size = "0.025 0.025 0.020"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x ="0.025" y="0.025" z="0.020">
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <joint name = "chassis_motor_fr" type = "fixed">
+        <parent link = "chassis"/>
+        <child link = "motor_fr"/>
+        <origin xyz = "0.16 -0.21 -0.020" rpy="0 0 0"/>
+    </joint>
+
+    <link name = "motor_fr">
+        <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry> 
+                <box size="0.025 0.025 0.020"/>
+            </geometry>
+            <material name = "silver"/>
+        </visual>
+        <collision>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size = "0.025 0.025 0.020"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x ="0.025" y="0.025" z="0.020">
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+
+    <joint name = "chassis_motor_bl" type = "fixed">
+        <parent link = "chassis"/>
+        <child link = "motor_bl"/>
+        <origin xyz = "-0.16 0.21 -0.020" rpy="0 0 0"/>
+    </joint>
+
+    <link name = "motor_bl">
+        <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry> 
+                <box size="0.025 0.025 0.020"/>
+            </geometry>
+            <material name = "silver"/>
+        </visual>
+        <collision>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size = "0.025 0.025 0.020"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x ="0.025" y="0.025" z="0.020">
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+     <joint name = "chassis_motor_br" type = "fixed">
+        <parent link = "chassis"/>
+        <child link = "motor_br"/>
+        <origin xyz = "-0.16 -0.21 -0.020" rpy="0 0 0"/>
+    </joint>
+
+    <link name = "motor_br">
+        <visual>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry> 
+                <box size="0.025 0.025 0.020"/>
+            </geometry>
+            <material name = "silver"/>
+        </visual>
+        <collision>
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size = "0.025 0.025 0.020"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.5" x ="0.025" y="0.025" z="0.020">
+            <origin xyz = "0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
 </robot>
 
 
