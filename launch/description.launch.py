@@ -3,27 +3,24 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.substitutions import LaunchConfiguration, Command
+from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 
 import xacro
 
+
 def generate_launch_description():
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    xacro_path = os.path.join(
-        get_package_share_directory('RL_Rover'),
-        'description', '4wd.urdf.xacro'
-    )
+    # Check if we're told to use sim time
+    use_sim_time = LaunchConfiguration('use_sim_time')
 
-    print("done till here")
-    print(xacro_path)
-
-    robot_description_config = xacro.process_file(xacro_path)
-
-    print ("this too is done")
-
+    # Process the URDF file
+    pkg_path = os.path.join(get_package_share_directory('RL_Rover'))
+    xacro_file = os.path.join(pkg_path,'description','rover.urdf.xacro')
+    robot_description_config = xacro.process_file(xacro_file)
+    
+    # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -32,13 +29,13 @@ def generate_launch_description():
         parameters=[params]
     )
 
+
+    # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
             default_value='false',
-            description='Use simulation (Gazebo) clock if true'
-        ),
+            description='Use sim time if true'),
+
         node_robot_state_publisher
     ])
-
-print("all good?")
