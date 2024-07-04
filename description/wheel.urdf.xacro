@@ -43,4 +43,5 @@
       <origin xyz="${pos_x} ${pos_y} ${pos_z}" rpy="0 0 0"/>
     </joint>
   </xacro:macro>
+  
 </robot>
